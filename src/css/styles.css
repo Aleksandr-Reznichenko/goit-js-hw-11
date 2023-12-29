@@ -63,7 +63,7 @@ button {
 .header {
   display: flex;
   justify-content: center;
-  padding: 16px;
+  padding: 16px 0;
 }
 
 .search-form {
@@ -81,10 +81,15 @@ button {
   border-radius: 4px;
   border: 1px solid var(--prymary-border-color);
   transition: border-color 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
 }
 
 .search-input:hover {
   border-color: var(--border-color-hover);
+}
+
+.search-input:focus {
+  border: 1px solid var(--prymary-accent-color);
 }
 
 .search-btn {
@@ -101,4 +106,91 @@ button {
 
 .search-btn:hover {
   background-color: var(--prymary-hover-accent-color);
+}
+
+/* ======== */
+
+.main {
+  padding: 16px 0;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.card {
+  border: 1px solid var(--prymary-border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card-image {
+  width: 360px;
+  height: 240px;
+  cursor: zoom-in;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px 0;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Loading */
+
+.loader-container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+}
+
+.loader {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: block;
+  margin: 15px auto;
+  position: relative;
+  color: var(--prymary-accent-color);
+  box-sizing: border-box;
+  animation: animloader 2s linear infinite;
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+  }
+  25% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 2px;
+  }
+  50% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 2px, -38px 0 0 -2px;
+  }
+  75% {
+    box-shadow: 14px 0 0 2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+  }
+  100% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 2px, -14px 0 0 -2px, -38px 0 0 -2px;
+  }
 }
