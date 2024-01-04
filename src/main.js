@@ -74,17 +74,21 @@ function handleFormSubmit(event) {
 }
 
 function renderImages(images) {
+  const fragment = document.createDocumentFragment();
+
   images.forEach(image => {
-    const card = createImageCard(image);
-    galleryElement.appendChild(card);
+    const imageCardElement = createImageCard(image);
+    fragment.appendChild(imageCardElement);
   });
+
+  galleryElement.appendChild(fragment);
 }
 
 function createImageCard(image) {
-  const cardElement = document.createElement('div');
-  cardElement.classList.add('card');
+  const imageCardElement = document.createElement('div');
+  imageCardElement.classList.add('card');
 
-  cardElement.innerHTML = `
+  imageCardElement.innerHTML = `
     <a class="gallery-link" href="${image.largeImageURL}">
         <img class="card-image" src="${image.webformatURL}" alt="${image.tags}" loading="lazy">
       </a>
@@ -96,7 +100,7 @@ function createImageCard(image) {
       </div>
     `;
 
-  return cardElement;
+  return imageCardElement;
 }
 
 function clearGallery() {
